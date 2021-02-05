@@ -6,9 +6,11 @@ PIXEorg is a simple program created to organize and show in an excel (.xlsx) fil
 ## 2. How does it work?
 The GUI of the program is shown in figure 1.
 <p align="center">
-  <img src="images/GUIPIXEorg.png" width="650" title="hover text">
-  <figcaption style="text-align:center;">Figure 1 - Graphical User Interface of PIXE_org.</figcaption>
-</figure>
+  <img src="images/GUIPIXEorg.png" width="650" alt='missing' />
+  <p align="center">Figure 1 - Graphical User Interface of PIXE_org.</p>
+</p>
+
+
 </br>
 </br>
 
@@ -40,10 +42,10 @@ The output of the program is an excel file (FinalTable.xslx) with two sheets. In
 
 The second sheet has a table that is the same as the one in the first sheet but with the errors of each concentration presented and without the sum of all the concentrations in each sample. The errors are obtained according to what is presented in the subsection “Statistics and errors” of the section 2.3 “Execution”. 
 
-<figure align="center">
+<p align="center">
   <img src="images/table_conc.png" width="1400" title="hover text">
-  <figcaption>Figure 2 – Example of table of mass concentrations (without errors). Only some of the oxides in the samples are presented so that the whole table can be seen, and that is why the "Total (%)" column has values much smaller than 100%.</figcaption>
-</figure>
+  <p align="center">Figure 2 – Example of table of mass concentrations (without errors). Only some of the oxides in the samples are presented so that the whole table can be seen, and that is why the "Total (%)" column has values much smaller than 100%.</p>
+</p>
 </br>
 </br>
 </br>

@@ -4,9 +4,10 @@
 PIXEorg is a simple program created to organize and show in an excel (.xlsx) file concentrations obtained after fitting PIXE spectra with GUPIXWIN in batch mode. Due to the variation of the X-ray production cross sections with the energy of the exciting beam, and to optimize the detection of the high mass trace elements with very low x-ray emission intensities, two irradiations are usually performed with different energies of the exciting ion beam. From the low energy analysis, the user obtains the concentrations of lower mass elements, and from the high energy analysis the concentrations of higher mass elements. After each irradiation the resulting spectra are fitted with GUPIXWIN and a set of comma delimited (.csv) files with the concentrations of the several elements and their relative errors is produced. The complete set of csv files (from both energy regimes) is read by PIXEorg which organizes and selects the useful data to produce a final excel (.xlsx) table with the concentrations of elements or compounds of interest and their respective errors.
 
 ## 2. How does it work?
-<figure align="center">
+The GUI of the program is shown in figure 1.
+<p align="center">
   <img src="images/GUIPIXEorg.png" width="650" title="hover text">
-  <figcaption>Figure 1 - Graphical User Interface of PIXE_org.</figcaption>
+  <figcaption style="text-align:center;">Figure 1 - Graphical User Interface of PIXE_org.</figcaption>
 </figure>
 </br>
 </br>
@@ -38,11 +39,16 @@ If the user only wants to use the data from one energy regime then it is okay to
 The output of the program is an excel file (FinalTable.xslx) with two sheets. In the first sheet there is a table with the mass concentrations, in %, of each element or oxide of interest for each sample (figure 2). If an element/oxide is deemed not to be part of the composition (according to the criterium presented in “Selection of lines” below) then it has a blank entry. The final column of this table shows the sum of all the mass concentrations of the elements/oxides for each sample. If all the elements/oxides that take part in the composition are considered this sum should be close to 100%. Along with each element/oxide name there is the indication of the line used to obtain the concentrations.
 
 The second sheet has a table that is the same as the one in the first sheet but with the errors of each concentration presented and without the sum of all the concentrations in each sample. The errors are obtained according to what is presented in the subsection “Statistics and errors” of the section 2.3 “Execution”. 
+
+<figure align="center">
+  <img src="images/table_conc.png" width="1400" title="hover text">
+  <figcaption>Figure 2 – Example of table of mass concentrations (without errors). Only some of the oxides in the samples are presented so that the whole table can be seen, and that is why the "Total (%)" column has values much smaller than 100%.</figcaption>
+</figure>
 </br>
 </br>
 </br>
 </br>
-</br>
+
 ### 2.3	Execution
 </br>
 
@@ -84,8 +90,5 @@ So that the user is aware of data not found in the csv files warnings can be ena
 </br>
 </br>
 
-<figure align="center">
-  <img src="images/table_conc.png" width="1400" title="hover text">
-  <figcaption>Figure 2 – Example of table of mass concentrations (without errors). Only some of the oxides in the samples are presented so that the whole table can be seen, and that is why the "Total (%)" column has values much smaller than 100%.</figcaption>
-</figure>
+
 

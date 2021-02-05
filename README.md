@@ -4,9 +4,10 @@
 PIXEorg is a simple program created to organize and show in an excel (.xlsx) file concentrations obtained after fitting PIXE spectra with GUPIXWIN in batch mode. Due to the variation of the X-ray production cross sections with the energy of the exciting beam, and to optimize the detection of the high mass trace elements with very low x-ray emission intensities, two irradiations are usually performed with different energies of the exciting ion beam. From the low energy analysis, the user obtains the concentrations of lower mass elements, and from the high energy analysis the concentrations of higher mass elements. After each irradiation the resulting spectra are fitted with GUPIXWIN and a set of comma delimited (.csv) files with the concentrations of the several elements and their relative errors is produced. The complete set of csv files (from both energy regimes) is read by PIXEorg which organizes and selects the useful data to produce a final excel (.xlsx) table with the concentrations of elements or compounds of interest and their respective errors.
 
 ## 2. How does it work?
-<p align="center">
-  <img src="GUIPIXEorg.png" width="650" title="hover text">
-</p>
+<figure align="center">
+  <img src="images/GUIPIXEorg.png" width="650" title="hover text">
+  <figcaption>Figure 1 - Graphical User Interface of PIXE_org.</figcaption>
+</figure>
 </br>
 </br>
 
@@ -78,4 +79,13 @@ So that the user is aware of data not found in the csv files warnings can be ena
 -	missing spectra files, indicated in the “filesID” sheet of the “Parameters.xlsx” file, which were not found in either the high energy or the low energy csv files. The user is also warned if no low energy and/or high energy data was found for a particular sample. For this check the box under “Show warnings about spectra files not found in the data” in the GUI.
 -	no lines being found for elements (with Z≥11 ) specified in the “Compounds” sheet of the “Parameters.xlsx” file. If both energies data is provided, lines of elements with Z≤20 are searched for in the low energy csv files and lines of elements with Z>20 are searched for in the high energy csv files. If only data for a single energy is provided all the element lines are searched for in the provided csv files. For this, check the box under “Show warnings about element lines not found in the data” in the GUI.
 -	Normalization lines specified in the “NormalizationLines” sheet of the “Parameters.xslx” file, not found in both energies’ csv files. For this check the box under “Show warnings about element lines not found in the data” in the GUI. Note however that if not a single normalization line is found in both data this will cause an ERROR, prompting the user to specify other lines, and the program will quit execution. 
+</br>
+</br>
+</br>
+</br>
+
+<figure align="center">
+  <img src="images/table_conc.png" width="1400" title="hover text">
+  <figcaption>Figure 2 – Example of table of mass concentrations (without errors). Only some of the oxides in the samples are presented so that the whole table can be seen, and that is why the "Total (%)" column has values much smaller than 100%.</figcaption>
+</figure>
 

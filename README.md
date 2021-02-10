@@ -17,6 +17,7 @@ The GUI of the program is shown in figure 1.
 ### 2.1	Required files
 A set of data files, obtained from fitting with GUPIXWIN real experimental spectra is given in the instalation folder of PIXE_org, under PIXE_org/data_example. These files were obtained from the PIXE analysis of several glass lamps at Campus Tecnológico e Nuclear (CTN) of Instituto Superior Técnico (IST). The Parameters.xslx file provided also has the parameters required to process this set of example data files. 
 </br>
+</br>
 
 #### 2.1.1 Parameters file
 A parameters file called "Parameters.xlsx" must be in the same folder as the PIXEorg executable. This Parameters excel file has: <br/><br/>
@@ -57,8 +58,13 @@ The "FinalTable" and "FinalTable Errors" tables have the number of decimal place
 </br>
 </br>
 
-#### 2.2.2 runlog.log
-There are 3 kind of output messages during the program execution: informations, error messages and warning messages. During the program's execution the main GUI shows a display screen where all the information and error messages are displayed. Warning messages can also be displayed, if they are enabled in the GUI, under the OPTIONS group (figure 1). All of these messages (informations, errors and warnings) are however always written in a log file "runlog.log" so that the user can see the details of a particular run later. The file is written in "append" mode so that if more than 1 run is made with the same data the details of the previous run are not lost.
+#### 2.2.2 Output messages and logging
+There are 3 kind of output messages during the program execution: informations, error messages and warning messages. The information messages are meant to inform the user of the progress of the program. The warning messages are mostly to warn the user of data that was indicated in the Parameters.xlsx file but was not found in the csv data files. These output messages are written to a log file "runlog.log", for later inspection, and printed in the GUI output window. </br>
+If much data is missing from the csv files, the number of warnings can be excessive and so the user can disable the warning messages in the GUI by disabling the warning boxes (figure 1, in the “OPTIONS” group). (Among other things) the user is warned about: 
+-	missing spectra files, indicated in the “filesID” sheet of the “Parameters.xlsx” file, which were not found in either the high energy or the low energy csv files. The user is also warned if no low energy and/or high energy data was found for a particular sample. To show these warnings in the GUI the box under “Show warnings about spectra files" must be checked.
+-	no lines being found for elements (with Z≥11 ) specified in the “Compounds” sheet of the “Parameters.xlsx” file. If both energies data is provided, lines of elements with Z≤20 are searched for in the low energy csv files and lines of elements with Z>20 are searched for in the high energy csv files. If only data for a single energy is provided all the element lines are searched for in the provided csv files. To show these warnings in the GUI the box under “Show warnings about element lines" must be checked.
+-	Normalization lines specified in the “NormalizationLines” sheet of the “Parameters.xslx” file, not found in both energies’ csv files. To show these warnings in the GUI the box under “Show warnings about spectra files" must be checked. Note however that if not a single normalization line is found in both data this will cause an ERROR, prompting the user to specify other lines, and the program will quit execution. 
+
 </br>
 </br>
 </br>
@@ -95,15 +101,6 @@ Besides oxides any other compounds can also be considered. However, the standard
 </br>
 </br>
 
-#### 2.3.5 Warnings
-So that the user is aware of data not found in the csv files warnings can be enabled in the main GUI (figure 1, in the “OPTIONS” group). The user can be warned about: 
--	missing spectra files, indicated in the “filesID” sheet of the “Parameters.xlsx” file, which were not found in either the high energy or the low energy csv files. The user is also warned if no low energy and/or high energy data was found for a particular sample. For this check the box under “Show warnings about spectra files not found in the data” in the GUI.
--	no lines being found for elements (with Z≥11 ) specified in the “Compounds” sheet of the “Parameters.xlsx” file. If both energies data is provided, lines of elements with Z≤20 are searched for in the low energy csv files and lines of elements with Z>20 are searched for in the high energy csv files. If only data for a single energy is provided all the element lines are searched for in the provided csv files. For this, check the box under “Show warnings about element lines not found in the data” in the GUI.
--	Normalization lines specified in the “NormalizationLines” sheet of the “Parameters.xslx” file, not found in both energies’ csv files. For this check the box under “Show warnings about element lines not found in the data” in the GUI. Note however that if not a single normalization line is found in both data this will cause an ERROR, prompting the user to specify other lines, and the program will quit execution. 
-</br>
-</br>
-</br>
-</br>
 
 
 

@@ -6,7 +6,7 @@ PIXEorg is a simple program created to organize and show in an excel (.xlsx) fil
 ## 2. How does it work?
 The GUI of the program is shown in figure 1.
 <p align="center">
-  <img src="images/GUIPIXEorg.png" width="650" alt='missing' />
+  <img src="images/GUI.png" width="850" alt='missing' />
   <p align="center">Figure 1 - Graphical User Interface of PIXE_org.</p>
 </p>
 
@@ -31,22 +31,34 @@ In all these sheets comments can be added to the top, in the first column (only 
 
 #### 2.1.2 Data files
 After fitting a set of PIXE spectra GUPIXWIN records the results in several comma delimited (.csv) files. One of these files has the mass concentration (in PPM) for each analyzed x-ray line (the conversion of x-ray intensities to mass content in the sample), for each analyzed sample. There is also a correspondent errors file that has the relative error (in %) of each mass concentration that was calculated and presented in the concentrations file. </br>
-As mentioned in the introduction section if both low mass and high mass elements are present in the samples analyzed then two irradiations are usually performed with different energies of the exciting ion beam. If this is the case, then for each experiment there will be an output of a concentration file and a correspondent errors file. PIXEorg uses the low energy (LE) csv files to read the concentrations and errors of elements with Z≤20 and the high energy (HE) csv files to read the concentrations and errors of elements with Z>20. After launching PIXE_org.exe the path to both concentrations file should be provided (the file selection fields of the GUI can be seen at the bottom of figure 1). The errors file should be in the same path as the correspondent concentrations file. **For the program to work correctly the name of the high energy (low energy) concentrations file should end in "HECON.csv" ("LECON.csv") and the name of high energy (low energy) errors file should end in "HEERR.csv" ("LEERR.csv"). Notice that the default terminations provided by GUPIXWIN when the csv files are created are "CON.csv" and "ERR.csv". The user must add the "HE" or "LE" according to the energy regime of the data.** </br>
-If the user only wants to use the data from one energy regime then it is okay to provide only one path for a concentrations file in the file selection fields shown at the bottom of the GUI in figure 1. In this case either the high energy or the low energy fields can be used to provide the path, regardless of the experimental energy of the exciting beam, while leaving the other field empty, and the terminations of the files can either be the default ones ("CON.csv" and "ERR.csv") or the default ones with one of the energy prefixes ("HE" or "LE"). Both the high and low mass element lines data are then read from the concentrations and errors files provided. In this case the high energy data will not be normalized.
+As mentioned in the introduction section if both low mass and high mass elements are present in the samples analyzed then two irradiations are usually performed with different energies of the exciting ion beam. If this is the case, then for each experiment there will be an output of a concentration file and a correspondent errors file. PIXEorg uses the low energy (LE) csv files to read the concentrations and errors of elements with Z≤20 and the high energy (HE) csv files to read the concentrations and errors of elements with Z>20. After launching PIXE_org.exe the path to both concentrations file can be provided (the file selection fields of the GUI can be seen at the bottom of figure 1). The errors file should be in the same path as the correspondent concentrations file. **The associated (same experimental beam energy) csv data files should have the same names except for the terminations. The errors file must terminate with \"ERR.csv\" and the concentrations file with \"CON.csv\". These are the default terminations provided by GUPIXWIN when the csv files are created.** If the user only wants to use the data from one energy regime then it is okay to provide only one path for a concentrations file in the file selection fields shown in the GUI in figure 1. In this case either the high energy or the low energy fields can be used to provide the path, regardless of the experimental energy of the exciting beam, while leaving the other field empty. Both the high and low mass element lines data are then read from the concentrations and errors files provided. In this case the high energy data will not be normalized.
 </br>
 </br>
 </br>
 </br>
 </br>
 ### 2.2	Output
-The output of the program is an excel file (FinalTable.xslx) with two sheets. In the first sheet there is a table with the mass concentrations, in %, of each element or oxide of interest for each sample (figure 2). If an element/oxide is deemed not to be part of the composition (according to the criterium presented in “Selection of lines” below) then it has a blank entry. The final column of this table shows the sum of all the mass concentrations of the elements/oxides for each sample. If all the elements/oxides that take part in the composition are considered this sum should be close to 100%. Along with each element/oxide name there is the indication of the line used to obtain the concentrations.
+The output files are created in the same folder where the csv data files are present. If both the HE and LE data files are provided and they are in different folders then the outputs are created in the folder with the HE data files. 
+</br>
+</br>
 
-The second sheet has a table that is the same as the one in the first sheet but with the errors of each concentration presented and without the sum of all the concentrations in each sample. The errors are obtained according to what is presented in the subsection “Statistics and errors” of the section 2.3 “Execution”. 
+#### 2.2.1 FinalTable.xslx
+The main output of the program is an excel file (FinalTable.xslx) with 3 sheets. In the first sheet, named "FinalTable", there is a table with the mass concentrations, in %, of each element or oxide of interest for each sample (figure 2). If an element/oxide is deemed not to be part of the composition (according to the criterium presented in “Selection of lines” below) then it has a blank entry. The final column of this table shows the sum of all the mass concentrations of the elements/oxides for each sample. If all the elements/oxides that take part in the composition are considered this sum should be close to 100%. Along with each element/oxide name there is the indication of the line used to obtain the concentrations.
+
+The second sheet, named "FinalTable Errors" has a table that is the same as the one in the "FinalTable" sheet but with the errors of each concentration presented and without the sum of all the concentrations in each sample. The errors are obtained according to what is presented in the subsection “Statistics and errors” of the section 2.3 “Execution”. 
+
+The "FinalTable" and "FinalTable Errors" tables have the number of decimal places of each concentration determined by its error (one significant digit in the error). However if the data is to be further processed it is useful to have a greater precision in the values. Therefore a third sheet, named "FinalTable Extended", has a table equal to the "FinalTable Errors" table but all the entries have 4 decimal places. Since these entries are in "number" format (and the ones in the previous tables are in "string" format) excel does not show trailling zeros after the decimal separator, which may be present after rounding, and therefore the number of decimal places displayed may be less than 4. For example, if a concentration has the value 33.34599% it is rounded to 33.3460% and displayed as 33.346%.
+
 
 <p align="center">
   <img src="images/table_conc.png" width="1400" title="hover text">
   <p align="center">Figure 2 – Example of table of mass concentrations (without errors). Only some of the oxides in the samples are presented so that the whole table can be seen, and that is why the "Total (%)" column has values much smaller than 100%.</p>
 </p>
+</br>
+</br>
+
+#### 2.2.2 runlog.log
+There are 3 kind of output messages during the program execution: informations, error messages and warning messages. During the program's execution the main GUI shows a display screen where all the information and error messages are displayed. Warning messages can also be displayed, if they are enabled in the GUI, under the OPTIONS group (figure 1). All of these messages (informations, errors and warnings) are however always written in a log file "runlog.log" so that the user can see the details of a particular run later. The file is written in "append" mode so that if more than 1 run is made with the same data the details of the previous run are not lost.
 </br>
 </br>
 </br>

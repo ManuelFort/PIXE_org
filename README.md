@@ -15,7 +15,7 @@ The GUI of the program is shown in figure 1.
 </br>
 
 ### 2.1	Required files
-A set of data files, obtained from fitting with GUPIXWIN real experimental spectra is given in the instalation folder of PIXE_org, under PIXE_org/data_example. These files were obtained from the PIXE analysis of several glass lamps at Campus Tecnológico e Nuclear (CTN) of Instituto Superior Técnico (IST). The Parameters.xslx file provided also has the parameters required to process this set of example data files. 
+A set of data files, obtained from fitting real experimental spectra with GUPIXWIN, is provided in the example_data folder (in the present github project). These files were obtained from the PIXE analysis of several glass lamps at Campus Tecnológico e Nuclear (CTN) of Instituto Superior Técnico (IST). The Parameters.xslx file provided with the instalation of the program has the parameters required to process this set of example data files. There is also a copy of this parameters file in the example_data folder.
 </br>
 </br>
 

@@ -2,9 +2,15 @@
 
 ##  1.	Introduction
 PIXE_org is a simple program created to organize and show in an Excel (.xlsx) file concentrations obtained after fitting PIXE spectra with GUPIXWIN in batch mode. Due to the variation of the X-ray production cross sections with the energy of the exciting beam, and to optimize the detection of the high mass trace elements with very low x-ray emission intensities, two irradiations are usually performed with different energies of the exciting ion beam. From the low energy analysis, the user obtains the concentrations of lower mass elements, and from the high energy analysis the concentrations of higher mass elements. After each irradiation the resulting spectra are fitted with GUPIXWIN and a set of comma delimited (.csv) files with the concentrations of the several elements and their relative errors is produced. The complete set of csv files (from both energy regimes) is read by PIXE_org which organizes and selects the useful data to produce a final Excel (.xlsx) file with several tables: 2 with the concentrations (in different formats) of elements/oxides of interest for each sample, 1 with the concentrations and the corresponding errors of the elements/oxides of interest for each sample, and 1 with the stoichiometry of a set of specifically selected elements, for each sample. 
+</br>
+</br>
 
 ### 1.1 Installation
 The installer file (setup_pixe_org.exe) can be used to install PIXE_org in any desired folder. The parameters file “Parameters.xlsx” should be in the installation folder, while the csv data files should be placed in any other folder that the program can write into (a folder that doesn’t require administrator permissions such as the ones in “C:”). 
+</br>
+</br>
+</br>
+</br>
 
 ## 2. How does it work?
 The GUI of the program is shown in figure 1.
